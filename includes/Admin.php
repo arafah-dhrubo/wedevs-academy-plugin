@@ -10,12 +10,12 @@ use WeDevs\Academy\Admin\Addressbook;
 class Admin
 {
     function __construct(){
-        new Admin\Menu();
-        $this->dispatch_actions();
+        $addressbook = new Addressbook();
+        $this->dispatch_actions($addressbook);
+        new Admin\Menu($addressbook);
     }
 
-    public function dispatch_actions(){
-        $addressbook = new Addressbook();
+    public function dispatch_actions($addressbook){
         add_action('admin_init', [$addressbook, 'form_handler']);
     }
 }
