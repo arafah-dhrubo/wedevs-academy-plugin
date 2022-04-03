@@ -1,0 +1,18 @@
+{
+    "name": "dhrubo/wedevs-academy-plugin",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "autoload": {
+        "psr-4": {
+            "WeDevs\\Academy\\": "includes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Samiul Arafah Dhrubo",
+            "email": "66543604+Dhrubo-Arafah@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
