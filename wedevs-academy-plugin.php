@@ -9,7 +9,7 @@
  * Requires PHP: 7.2
  * Author: Your Name
  * Author URI: https://example.com
- * Text Domain: Wdap-plugin
+ * Text Domain: wedevs-academy
  * License: GPL v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Update URI: https://example.com/my-plugin/
@@ -57,11 +57,11 @@ final class Lets_Start_The_Journey
      */
     public function define_constants()
     {
-        define('WDAP_VERSION', self::version);
-        define('WDAP_FILE', __FILE__);
-        define('WDAP_PATH', __DIR__);
-        define('WDAP_URL', plugins_url('', WDAP_FILE));
-        define('WDAP_ASSETS', WDAP_URL . '/assets');
+        define('WD_ACADEMY_VERSION', self::version);
+        define('WD_ACADEMY_FILE', __FILE__);
+        define('WD_ACADEMY_PATH', __DIR__);
+        define('WD_ACADEMY_URL', plugins_url('', WD_ACADEMY_FILE));
+        define('WD_ACADEMY_ASSETS', WD_ACADEMY_URL . '/assets');
     }
 
     /**
@@ -69,11 +69,8 @@ final class Lets_Start_The_Journey
      */
     public function activate()
     {
-        $installed = get_option('wdap_installed');
-        if (!$installed) {
-            update_option('wdap_installed', time());
-        }
-        update_option('wdap_version', WDAP_VERSION);
+       $installer = new WeDevs\Academy\Installer();
+       $installer->run();
     }
 
     public function init_plugin()
